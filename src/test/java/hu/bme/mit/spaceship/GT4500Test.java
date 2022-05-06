@@ -9,16 +9,21 @@ import static org.mockito.Mockito.*;
 public class GT4500Test {
 
   private GT4500 ship;
+  private TorpedoStore primaryTorpedoStoreMock;
+  private TorpedoStore secondaryTorpedoStoreMock;
 
   @BeforeEach
   public void init(){
-    this.ship = new GT4500();
+    this.primaryTorpedoStoreMock = mock(TorpedoStore.class);
+    this.secondaryTorpedoStoreMock = mock(TorpedoStore.class);
+    this.ship = new GT4500(primaryTorpedoStoreMock,secondaryTorpedoStoreMock);
   }
 
   @Test
   public void fireTorpedo_Single_Success(){
     // Arrange
-
+    when(primaryTorpedoStoreMock.fire(1)).thenReturn(true);
+    when(secondaryTorpedoStoreMock.fire(1)).thenReturn(true);
     // Act
     boolean result = ship.fireTorpedo(FiringMode.SINGLE);
 
@@ -29,7 +34,8 @@ public class GT4500Test {
   @Test
   public void fireTorpedo_All_Success(){
     // Arrange
-
+    when(primaryTorpedoStoreMock.fire(1)).thenReturn(true);
+    when(secondaryTorpedoStoreMock.fire(1)).thenReturn(true);
     // Act
     boolean result = ship.fireTorpedo(FiringMode.ALL);
 
