@@ -1,0 +1,7 @@
+Test Cases for fireTorpedo
+
+1.) Első lövés a primaryTorpedoStore kerül lövésre
+2.) Első lövés de a primaryTorpedoStore üres.
+3.) firingMode=ALL de az egyik meghibásodik
+4.) Egymás után lövünk hármat, minden megfelelően működik
+5.) firingMode=All az egyik tartály üres a másik meg meghibásodik.
